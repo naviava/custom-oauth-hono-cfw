@@ -1,0 +1,30 @@
+{
+  "name": "@repo/db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.ts",
+  "scripts": {
+    "db:generate": "pnpm exec drizzle-kit generate",
+    "db:migrate": "pnpm exec drizzle-kit migrate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "exports": {
+    ".": "./src/index.ts",
+    "./drizzle-orm": "./src/lib/drizzle-orm.ts",
+    "./tables": "./src/schema/index.ts"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^0.10.4",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.36.4",
+    "postgres": "^3.4.5"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "drizzle-kit": "^0.28.1",
+    "tsx": "^4.19.2"
+  }
+}
