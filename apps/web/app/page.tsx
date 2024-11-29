@@ -5,7 +5,7 @@ import { client } from "@repo/server";
 
 const oAuthCalls = {
   github: client.api.auth.github.$get,
-  discord: client.api.auth.discord.$get,
+  google: client.api.auth.google.$get,
 };
 type OAuthProvider = keyof typeof oAuthCalls;
 
@@ -13,9 +13,10 @@ export default function Home() {
   async function handleOauth(provider: OAuthProvider) {
     if (!oAuthCalls[provider]) alert("Invalid OAuth provider!");
     try {
-      const res = await oAuthCalls[provider]();
-      const data = await res.json();
-      console.log(data);
+      // const res = await oAuthCalls[provider]();
+      // const data = await res.json();
+      // console.log(data);
+      window.location.href = "http://127.0.0.1:8787/api/auth/github";
     } catch (err) {
       console.log("Error >> " + err);
     }

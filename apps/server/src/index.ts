@@ -19,12 +19,20 @@ const app = new Hono().basePath("/api");
 app.use(
   "*",
   cors({
-    origin: ["http://localhost:3000", "http://127.0.0.1:3000"],
+    origin: [
+      "http://localhost:3000",
+      "http://127.0.0.1:3000",
+      "https://github.com",
+    ],
     credentials: true,
     allowMethods: ["POST", "GET", "PUT", "DELETE", "OPTIONS"],
     allowHeaders: ["Content-Type", "Authorization"],
     maxAge: 600,
   }),
+  (c, next) => {
+    c.header("Vary", "Origin");
+    return next();
+  },
 );
 
 const routes = app

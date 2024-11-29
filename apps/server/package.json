@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@auth/drizzle-adapter": "^1.7.4",
-    "@hono/oauth-providers": "^0.6.2",
     "@hono/zod-validator": "^0.4.1",
     "@repo/db": "workspace:*",
     "@repo/utils": "workspace:*",
